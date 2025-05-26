@@ -25,6 +25,7 @@ public class ViewData extends JFrame {
     JButton tombolTambah = new JButton("Tambah Mahasiswa");
     JButton tombolEdit = new JButton("Edit Mahasiswa");
     JButton tombolHapus = new JButton("Hapus Mahasiswa");
+    JButton tombolKembali = new JButton("Kembali ke menu utama");
 
     /*
       Untuk membuat Tabel, kita memerlukan 3 komponen, yaitu:
@@ -52,19 +53,21 @@ public class ViewData extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
-        setSize(552, 540);
+        setSize(552, 640);
 
         add(header);
         add(scrollPane);
         add(tombolTambah);
         add(tombolEdit);
         add(tombolHapus);
+        add(tombolKembali);
 
         header.setBounds(20, 8, 440, 24);
         scrollPane.setBounds(20, 36, 512, 320);
         tombolTambah.setBounds(20, 370, 512, 40);
         tombolEdit.setBounds(20, 414, 512, 40);
         tombolHapus.setBounds(20, 456, 512, 40);
+        tombolKembali.setBounds(20, 502, 512, 40);
 
         /*
           Memanggil method showData() dari controller untuk
@@ -151,6 +154,14 @@ public class ViewData extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Data belum dipilih.");
                 }
+            }
+        });
+        
+        tombolKembali.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new View.HomePage().setVisible(true);
             }
         });
     }
